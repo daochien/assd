@@ -1,0 +1,73 @@
+<template>
+    <div class="hero-countdown" :style="{ 'background-image': 'url(' + bgBanner + ')' }">
+        <div class="container">
+            <div class="row no-spacing">
+                <!-- hero -->
+                <section class="col-lg-8 no-spacing section hero">
+                    <no-ssr>
+                    <Carousel :per-page="1" :navigationEnabled="true" :autoplay="true" :mouse-drag="false" :loop="true">
+                        <Slide v-for="(item, index) in itemSlide" :key="index">
+                            <img :src="item.src" :alt="item.title">
+                        </Slide>
+                    </Carousel>
+                    </no-ssr>
+                </section>
+                <!-- hero end -->
+                <!-- Countdown clock -->
+                <section class="col-lg-4 no-spacing section countdown-clock">
+                    <h2 class="headline">Hội thi ánh sáng soi đường</h2>
+                    <div data-minutes="600000"></div>
+                    <div class="button-group">
+                        <a class="btn" href="">Vào thi</a>
+                        <a class="btn" href="">Thi thử</a>
+                    </div>
+                </section>
+                <!-- Countdown clock end -->
+            </div>
+        </div>
+    </div>
+</template>
+<script>
+let Carousel = null;
+let Slide = null;
+if (process.browser) {
+  Carousel =  require('vue-carousel').Carousel;
+  Slide = require('vue-carousel').Slide;
+}
+export default {
+    name: 'HeroCountdown',
+    components: {
+        Carousel,
+        Slide        
+    },
+    data() {
+        return {
+            itemSlide: [],
+            bgBanner: '@/assets/images/bg-banner.png'
+        }
+    },
+    mounted() {
+        this.itemSlide = banner;
+    }    
+}
+</script>
+<style scoped>
+img {
+    width: 100%;
+    height: 100%;
+}
+</style>
+<style>
+.VueCarousel-navigation-next {
+    right: 30px !important;
+}
+.VueCarousel-navigation-prev {
+    left: 30px !important;
+}
+.VueCarousel-pagination {
+    position: absolute;
+    bottom: 10px;
+}
+</style>
+
+
