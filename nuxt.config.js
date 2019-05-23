@@ -17,7 +17,16 @@ export default {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ],
     script: [
-      { src: 'http://leader.vnedutech.vn/js/data.js' }
+      { src: 'http://leader.vnedutech.vn/js/banner.js' },
+      { src: 'http://leader.vnedutech.vn/js/dvtc.js' },
+      { src: 'http://leader.vnedutech.vn/js/events.js' },
+      { src: 'http://leader.vnedutech.vn/js/exam.js' },
+      { src: 'http://leader.vnedutech.vn/js/menu.js' },
+      { src: 'http://leader.vnedutech.vn/js/news.js' },
+      { src: 'http://leader.vnedutech.vn/js/notify.js' },
+      { src: 'http://leader.vnedutech.vn/js/register.js' },
+      { src: 'http://leader.vnedutech.vn/js/timeline.js' },
+      { src: 'http://leader.vnedutech.vn/js/top_week.js' }
     ]
   },
 

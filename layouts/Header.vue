@@ -27,15 +27,15 @@
                     </div>
                     <ul class="nav js-navbar">
                         <li class="nav-item">
-                            <a href="" class="nav-link"><i class="fa fa-home"></i></a>
+                            <nuxt-link :to="{path: '/'}" class="nav-link"><i class="fa fa-home"></i></nuxt-link>
                         </li>
                         <li class="nav-item" v-for="(item, index) in data" :key="index" :class="[item.children.length ? 'dropdown' : '']">
                             
-                            <router-link :to="{path: '/' + item.type }" class="nav-link">{{ item.title }} </router-link>
+                            <nuxt-link :to="{path: '/' + item.type }" class="nav-link">{{ item.title }} </nuxt-link>
                             <template v-if="item.children">
                                 <ul class="sub-menu">
                                     <li class="nav-item" v-for="(child, key) in item.children" :key="key">
-                                        <router-link :to="{path: '/'+child.type }" class="nav-link">{{ child.title }} </router-link>
+                                        <nuxt-link :to="{path: '/'+child.type }" class="nav-link">{{ child.title }} </nuxt-link>
                                     </li>
                                 </ul>
                             </template>
