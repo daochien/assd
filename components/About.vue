@@ -67,7 +67,13 @@
     </div>
 </template>
 <script>
-import { Carousel, Slide } from 'vue-carousel';
+let Carousel = null;
+let Slide = null;
+if (process.browser) {
+  Carousel =  require('vue-carousel').Carousel;
+  Slide = require('vue-carousel').Slide;
+}
+
 export default {
     name: 'About',
     components: {

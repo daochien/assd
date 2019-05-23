@@ -7,6 +7,7 @@
                     <section class="organizations">
                         <h2 class="headline">ĐƠN VỊ TỔ CHỨC</h2>
                         <ul class="list js-carousel-01">
+                          <no-ssr>
                             <carousel :per-page="showItem" :loop="true" :autoplay="true" :navigationEnabled="false" :mouse-drag="true" :paginationEnabled="false">
                                 <slide v-for="(item, index) in items" :key="index">
                                     <a class="wrapper" :href="item.url">
@@ -17,6 +18,7 @@
                                     </a>
                                 </slide>
                             </carousel>
+                          </no-ssr>
                         </ul>
                     </section>
                     <!-- organizations end -->
@@ -45,77 +47,83 @@
     </div>
 </template>
 <script>
-import { Carousel, Slide } from 'vue-carousel';
-import { myMixin } from '@/mixins/mixins.js';
+let Carousel = null;
+let Slide = null;
+if (process.browser) {
+  Carousel =  require('vue-carousel').Carousel;
+  Slide = require('vue-carousel').Slide;
+}
 export default {
     name: 'Organization',
-    mixins: [myMixin], 
     components: {
         Carousel,
         Slide
     },
     data() {
         return {
-            items: dvtc
+            items: []
         }
     },
     computed: {
         showItem() {
-            if(this.isMobile()) {
-                return 1;
-            } else {
+            if(this.$device.isDesktop) {
                 return 4;
+            } else if(this.$device.isTablet) {
+                return 2;
+            } else {
+              return 1;
             }
         }
     },
-    created() {
-        console.log(this.isMobile());
+    mounted() {
+        this.items = dvtc;
     }
 }
 </script>
-<style lang="scss" scoped>
+<style  scoped>
 .wrapper {
-    text-align: center;
-    text-decoration: none;
-    outline: none;
-    .img {
-        height: 100px;
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-pack: center;
-        -ms-flex-pack: center;
-        justify-content: center;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-        align-items: center;
-        
-        img {
-            max-width: 100%;
-            max-height: 100%;
-        }
-    }
-    .name {
-        margin: 10px 0 0 0;
-        position: relative;
-        height: 70px;
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-pack: center;
-        -ms-flex-pack: center;
-        justify-content: center;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-        align-items: center;
-        text-align: center;
-        text-decoration: none;
-        color: #3b3b3b;
-        font-weight: 500;
-        font-size: .875rem;
-        padding: 0px 10px;
-    }
+  text-align: center;
+  text-decoration: none;
+  outline: none;
 }
+
+.wrapper .name {
+  margin: 10px 0 0 0;
+  position: relative;
+  height: 70px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  text-align: center;
+  text-decoration: none;
+  color: #3b3b3b;
+  font-weight: 500;
+  font-size: .875rem;
+  padding: 0px 10px;
+}
+.wrapper .img {
+  height: 100px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+
+}
+.wrapper .img img {
+      max-width: 100%;
+      max-height: 100%;
+  }
 </style>
 
 

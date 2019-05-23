@@ -4,26 +4,29 @@
         <section class="section news-hot">
             <h2 class="headline"><a href="http://">Tin Tức</a></h2>
             <div class="inner">
-                <figure class="news-item" >
+                <figure class="news-item" v-for="(item, index) in items" :key="index" v-show="index == 0">
+                  <template v-if="index == 0">
                     <h3 class="title">
-                        <a href="">{{ items[0].title }}</a>
+                        <a href="">{{ item.title }}</a>
                     </h3>
                     <div class="content">
                         <div class="img-cover">
                             <a href="#" class="img-cover__wrapper">
-                                <img :src="items[0].avatar" alt="">
+                                <img :src="item.avatar" alt="">
                             </a>
                         </div>
                         <div class="wrapper">
                             <div class="info">
-                                <span class="date">{{ items[0].created_at }}</span>
+                                <span class="date">{{ item.created_at }}</span>
                             </div>
-                            <div class="description">{{ items[0].summary }}</div>
+                            <div class="description">{{ item.summary }}</div>
                         </div>
                     </div>
+                  </template>
+
                 </figure>
                 <ul class="list">
-                    <li class="item" v-for="(item, index) in items" :key="index">
+                    <li class="item" v-for="(item, index) in items" :key="index" v-show="index > 0 && index < 5">
                         <template v-if="index > 0 && index < 5">
                             <h4 class="title">
                                 <a href="http://">{{ item.title }}</a>
@@ -32,7 +35,7 @@
                                 <span class="date">{{ item.created_at }}</span>
                             </div>
                         </template>
-                        
+
                     </li>
                 </ul>
             </div>
@@ -45,8 +48,11 @@ export default {
     name: 'HotNews',
     data() {
         return {
-            items: listNews
+            items: []
         }
+    },
+    mounted() {
+      this.items = listNews;
     }
 }
 </script>

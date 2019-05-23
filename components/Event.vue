@@ -4,7 +4,7 @@
         <section class="section news-event">
             <h2 class="headline"><a href="http://">SỰ KIỆN</a></h2>
             <div class="inner">
-                
+
                 <figure class="news-item" v-for="(item, index) in items" :key="index" >
                     <template v-if="index < 4">
                         <div class="img-cover">
@@ -21,8 +21,8 @@
                             </div>
                         </div>
                     </template>
-                    
-                </figure>                
+
+                </figure>
             </div>
         </section>
         <!-- news event end -->
@@ -33,8 +33,11 @@ export default {
     name: 'Event',
     data() {
         return {
-            items: events
+            items: []
         }
+    },
+    mounted() {
+      this.items = events;
     }
 }
 </script>

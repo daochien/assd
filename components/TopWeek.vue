@@ -54,12 +54,15 @@ export default {
     data() {
         return {
             isActive: false,
-            data: topWeek
+            data: []
         }
+    },
+    mounted() {
+      this.data = topWeek;
     }
 }
 </script>
-<style lang="scss" scoped>
+<style scoped>
 
 </style>
 

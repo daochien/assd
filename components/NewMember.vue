@@ -79,7 +79,7 @@ export default {
     name: 'NewMember',
 }
 </script>
-<style lang="scss" scoped>
+<style scoped>
 
 </style>
 

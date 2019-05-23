@@ -1,15 +1,15 @@
 <template>
-    <div class="hero-countdown" :style="{ 'background-image': 'url(' + bgBanner + ')' }">
+    <div class="hero-countdown" :style="{ backgroundImage: `url(${bgBanner})` }">
         <div class="container">
             <div class="row no-spacing">
                 <!-- hero -->
                 <section class="col-lg-8 no-spacing section hero">
                     <no-ssr>
-                    <Carousel :per-page="1" :navigationEnabled="true" :autoplay="true" :mouse-drag="false" :loop="true">
-                        <Slide v-for="(item, index) in itemSlide" :key="index">
-                            <img :src="item.src" :alt="item.title">
-                        </Slide>
-                    </Carousel>
+                      <Carousel :per-page="1" :navigationEnabled="true" :autoplay="true" :mouse-drag="false" :loop="true">
+                          <Slide v-for="(item, index) in itemSlide" :key="index">
+                              <img :src="item.src" :alt="item.title">
+                          </Slide>
+                      </Carousel>
                     </no-ssr>
                 </section>
                 <!-- hero end -->
@@ -38,17 +38,17 @@ export default {
     name: 'HeroCountdown',
     components: {
         Carousel,
-        Slide        
+        Slide
     },
     data() {
         return {
             itemSlide: [],
-            bgBanner: '@/assets/images/bg-banner.png'
+            bgBanner: '/images/bg-banner.png'
         }
     },
     mounted() {
         this.itemSlide = banner;
-    }    
+    }
 }
 </script>
 <style scoped>

@@ -1,12 +1,12 @@
 <template>
-    
+
     <!-- rating -->
         <section class="section rating v1">
             <div class="rating-item">
                 <div class="wrapper">
                     <h2 class="headline">Top thí sinh đăng ký</h2>
                     <div class="tab js-tab" >
-                        <div class="tab-item " :class="{active: !isActive}" > 
+                        <div class="tab-item " :class="{active: !isActive}" >
                             <div class="title" @click="isActive = !isActive">Sở GD & ĐT Tỉnh/TP</div>
                             <ul class="list">
                                 <li class="list-item" v-for="(city, index) in data.city" :key="index">
@@ -43,9 +43,12 @@ export default {
     data() {
         return {
             isActive: false,
-            data: topRegister
+            data: []
         }
     },
+    mounted() {
+      this.data = topRegister;
+    }
 }
 </script>
 <style>

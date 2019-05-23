@@ -23,9 +23,12 @@ export default {
     name: 'Notify',
     data() {
         return {
-            items: notifys
+            items: []
         }
     },
+    mounted() {
+      this.items = notifys;
+    }
 }
 </script>
 <style>

@@ -42,12 +42,15 @@ export default {
     data() {
         return {
             isActive: false,
-            data: topExam
+            data: []
         }
+    },
+    mounted() {
+      this.data = topExam;
     }
 }
 </script>
-<style lang="scss" scoped>
+<style scoped>
 
 </style>
 

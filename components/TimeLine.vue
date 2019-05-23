@@ -13,7 +13,7 @@
             </ul>
             <div class="info">
                 <div class="user">
-                    <img src="@/assets/src/images/cup2.png" alt="">
+                    <img src="@/assets/images/cup2.png" alt="">
                     <div class="number">416.329</div>
                     <div class="title">THÍ sinh dự thi</div>
                 </div>
@@ -27,7 +27,7 @@ export default {
     name: 'TimeLine',
     data() {
         return {
-            items: timeline
+            items: []
         }
     },
     computed: {
@@ -35,7 +35,8 @@ export default {
             return Object.keys(this.items).length-1
         }
     },
-    created() {
+    mounted() {
+      this.items = timeline;
     }
 }
 </script>

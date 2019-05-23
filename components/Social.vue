@@ -7,8 +7,8 @@
                 <p>Trên các Mạng xã hội</p>
             </div>
             <ul class="list">
-                <li><a href=""><img src="@/assets/src/images/social-facebook.png" alt=""></a></li>
-                <li><a href=""><img src="@/assets/src/images/social-youtube.png" alt=""></a></li>
+                <li><a href=""><img src="@/assets/images/social-facebook.png" alt=""></a></li>
+                <li><a href=""><img src="@/assets/images/social-youtube.png" alt=""></a></li>
             </ul>
         </section>
         <!-- social end -->
@@ -19,7 +19,7 @@ export default {
     name: 'Social'
 }
 </script>
-<style lang="scss" scoped>
+<style scoped>
 
 </style>
 
